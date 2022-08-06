@@ -1,0 +1,43 @@
+{
+  "name": "ast/simple_coding",
+  "description": "Custom PHP Framework",
+  "license": "free",
+  "authors": [
+    {
+      "name": "Alexandr Statut",
+      "email": "alexandr.statut@gmail.com"
+    }
+  ],
+  "config": {
+    "platform": {
+      "php": "7.3"
+    }
+  },
+
+  "require": {
+    "php": "^7.2|^8.0",
+    "ext-json": "*",
+    "ext-soap": "*",
+    "ext-iconv": "*",
+    "ext-simplexml": "*",
+    "ext-libxml": "*",
+    "illuminate/database": "^7.30",
+    "swiftmailer/swiftmailer": "^6.3",
+    "symfony/cache": "^5.3",
+    "guzzlehttp/guzzle": "^7.3"
+  },
+
+  "autoload": {
+    "psr-4": {
+      "\\": "",
+      "cfg\\": "cfg/",
+      "project\\": "project/",
+      "admin_panel\\": "admin_panel/",
+      "core\\": "system/core/",
+      "helper\\": "system/helper/",
+      "controllers\\": "project/controllers/",
+      "models\\": "project/models/",
+      "traits\\": "project/traits/"
+    }
+  }
+}

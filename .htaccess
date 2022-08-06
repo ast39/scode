@@ -1,0 +1,60 @@
+# Страницы ошибок
+ErrorDocument 403 /404.php
+ErrorDocument 404 /404.php
+ErrorDocument 500 /404.php
+
+# index файл в директории
+DirectoryIndex index.php
+
+<IfModule mod_autoindex.c>
+
+  # Запрет на листинг файлов каталога
+  Options -Indexes
+
+</IfModule>
+
+<IfModule mod_rewrite.c>
+
+    # Активируем модуль
+    RewriteEngine On
+
+    # Корень сайта
+    RewriteBase /
+
+    # Убирает index.php из URL
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]
+    # RewriteRule ^(.*)$ /site_in_dir/index.php?q=$1 [L,QSA]
+
+    # Перекидывает на index с системных папок
+    RewriteRule ^(?:cfg|core|helper|project)\b.* index.php/$0 [L]
+
+    # Перенаправляет на URL с WWW
+    #RewriteCond %{HTTP_HOST} ^scoding.ru$ [NC]
+    #RewriteRule ^(.*)$ http://www.scoding.ru/$1 [R=301,L]
+
+    # Редирект с https на http
+    #RewriteCond %{HTTPS} on
+    #RewriteRule (.*) http://%{HTTP_HOST}%{REQUEST_URI}
+
+</IfModule>
+
+#Защита скрытых файлов от просмотра
+<Files .*>
+	Order Deny,Allow
+	Deny From All
+</Files>
+
+<IfModule mod_expires.c>
+    Header append Cache-Control "public"
+    FileETag MTime Size
+    ExpiresActive On
+    ExpiresDefault "access plus 0 minutes"
+    ExpiresByType image/ico "access plus 1 years"
+    ExpiresByType image/gif "access plus 1 years"
+    ExpiresByType image/jpg "access plus 1 years"
+    ExpiresByType image/jpeg "access plus 1 years"
+    ExpiresByType image/bmp "access plus 1 years"
+    ExpiresByType image/png "access plus 1 years"
+</IfModule>
