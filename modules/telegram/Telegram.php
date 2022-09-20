@@ -1,6 +1,6 @@
 <?php
 
-namespace modules\Telegram;
+namespace modules\telegram;
 
 use GuzzleHttp\{
     Client,

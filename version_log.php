@@ -18,6 +18,17 @@
                 <img src="/i/img/system/i_return.png" width="20px" onclick="window.location.href='../'" style="cursor:pointer;" /></h5>
         </div>
         <div class="card-body">
+            <h5 class="text-success">SC Версия 3.4.1</h5>
+            <ul class="mt-3">
+                <li>Добавлен модуль для работы с хранилищем <code>modules\storage</code></li>
+                <li>Добавлен модуль для работы с телеграм ботом <code>modules\telegram</code></li>
+                <li>Изменена работа с логированием системных огибок и визитов</li>
+                <li>Убрана константа <code>ERRORS</code> - теперь добавлена константа <code>PROD</code> отвечающая за продакшн версию проекта</li>
+                <li>Убран параметр <code>Settings::;errors</code> - теперь добавлен парамтер <code>Settings::$production</code> формирующий константу <code>PROD</code></li>
+                <li>Общие правки по движку и улучшение</li>
+            </ul>
+        </div>
+        <div class="card-body">
             <h5 class="text-success">SC Версия 3.3.2</h5>
             <ul class="mt-3">
                 <li>Исправлены некоторые ошибки и увеличина стабильность библиотеки <code>helper\DataManager</code></li>

@@ -40,7 +40,7 @@ use cfg\Settings,
                     </tr>
                     <tr>
                         <td class="text-left">Список изменений</td>
-                        <td class="text-right text-success"><code><a href="version_log.php">Посмотреть</a></code></td>
+                        <td class="text-right text-success"><code><a href="/version_log.php">Посмотреть</a></code></td>
                     </tr>
                     </tbody>
                 </table>
@@ -244,13 +244,13 @@ use cfg\Settings,
                     <?php endif; ?>
                 </ul>
                 <div class="card-footer text-muted text-center">
-                    Рекомендуем ознакомиться с <a href="manual/">руководством</a> к фрэймворку
+                    Рекомендуем ознакомиться с <a href="/manual/">руководством</a> к фрэймворку
                 </div>
                 <div class="card-footer text-muted text-center">
-                    Так же Вы можете перейти в <a href="<?= Settings::$admin_partition ?>">админку</a> фрэймворка
+                    Так же Вы можете перейти в <a href="/<?= Settings::$admin_partition ?>">админку</a> фрэймворка
                 </div>
                 <div class="card-footer text-muted text-center">
-                    Скачать <a href="xc2021.rar" download>архив</a> последней версии SimpleCode
+                    Скачать <a href="/xc2021.rar" download>архив</a> последней версии SimpleCode
                 </div>
             </div>
         </div>

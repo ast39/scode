@@ -42,8 +42,8 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
 
 # автолоадэр стартового экрана
 if (file_exists(__DIR__ . '/install.php') && !\core\Route::adminFolder()) {
-//    require_once __DIR__ . '/install.php';
-//    die;
+    require_once __DIR__ . '/install.php';
+    die;
 }
 
 /*
