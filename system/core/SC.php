@@ -11,6 +11,7 @@ namespace core;
 
 use cfg\Settings,
     helper\Session;
+use modules\storage\Storage;
 
 class SC {
 
@@ -55,10 +56,9 @@ class SC {
 
     public static function logSystemError($e, $type = 'custom')
     {
-        if (Settings::$log_errors == true) {
+        if (Settings::$log_errors === true) {
 
-            $file = date('Y-m-d', time()) . '.sc';
-            $log = [
+            $log = json_encode([
                 'type'  => $type,
                 'time'  => date('H:i:s', time()),
                 'ip'    => static::getIp(),
@@ -67,18 +67,21 @@ class SC {
                 'file'  => $e->getFile(),
                 'line'  => $e->getLine(),
                 'trace' => $e->getTrace(),
-            ];
-            $log = json_encode($log);
-            file_put_contents(ROOT . 'tmp' . DIRECTORY_SEPARATOR . 'sc_errors' . DIRECTORY_SEPARATOR . $file, $log . PHP_EOL, FILE_APPEND);
+            ]);
+
+            $file = date('Y-m-d', time());
+            if (Storage::disk('logs')->exists($file)) {
+                Storage::disk('logs')->append($file, PHP_EOL . $log);
+            } else {
+                Storage::disk('logs')->put($file, $log);
+            }
         }
 }
 
     public static function logVisit()
     {
-        if (Settings::$log_visits == true) {
-
+        if (Settings::$log_visits === true) {
             $indexing = new SiteIndexing();
-            $file = date('Y-m-d', time()) . '.sc';
 
             $log = 'Time: ' . date('H:i:s', time()) . PHP_EOL
                 . 'Visitor: ' . $indexing->detectGuest() . PHP_EOL
@@ -92,7 +95,12 @@ class SC {
                 . 'Url: ' . Route::fullUrl()
                 . PHP_EOL . PHP_EOL;
 
-            file_put_contents(ROOT . 'tmp' . DIRECTORY_SEPARATOR . 'visits' . DIRECTORY_SEPARATOR . $file, $log, FILE_APPEND);
+            $file = date('Y-m-d', time());
+            if (Storage::disk('visits')->exists($file)) {
+                Storage::disk('visits')->append($file, PHP_EOL . $log);
+            } else {
+                Storage::disk('visits')->put($file, $log);
+            }
         }
     }
 

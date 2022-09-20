@@ -48,10 +48,10 @@ if (file_exists(__DIR__ . '/install.php') && !\core\Route::adminFolder()) {
 
 /*
 +----------------------------------------------------------------------------------------------------
-| Включен ли вывод ошибок на сайте
+| Режим продакшн вкл / выкл
 +----------------------------------------------------------------------------------------------------
 */
-define('ERRORS', Settings::$errors);
+define('PROD', Settings::$production);
 
 /*
 +----------------------------------------------------------------------------------------------------
@@ -72,12 +72,16 @@ require_once ROOT . 'system' . DIRECTORY_SEPARATOR . 'global' . EXT;
 | Инициализация
 +----------------------------------------------------------------------------------------------------
 */
-try {
+if (PROD) {
+    try {
+        require_once ROOT . 'system' . DIRECTORY_SEPARATOR . 'init' . EXT;
+    } catch (Error $e) {
+        SC::logSystemError($e, 'error');
+    } catch (Exception $e) {
+        SC::logSystemError($e, 'exception');
+    } catch (Throwable $e) {
+        SC::logSystemError($e, 'throw');
+    }
+} else {
     require_once ROOT . 'system' . DIRECTORY_SEPARATOR . 'init' . EXT;
-} catch (Error $e) {
-    SC::logSystemError($e, 'error');
-} catch (Exception $e) {
-    SC::logSystemError($e, 'exception');
-} catch (Throwable $e) {
-    SC::logSystemError($e, 'throw');
 }

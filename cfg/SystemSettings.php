@@ -9,34 +9,34 @@
 namespace cfg;
 
 
-class SystemSettings
-{ 
+class SystemSettings {
+
     # кодировка сайта
     public static $charset = 'utf-8';
 
     # протокол сайта
-    public static $protocol = 'http';
+    public static $protocol = 'https';
 
     # сайт в каталоге
     public static $site_dir = '';
+
+    # экстренно остановить сайт
+    public static $site_stop = false;
 
     # мультиязычный сайт
     public static $multi_lang = false;
 
     # вкл / выкл вывод ошибок
-    public static $errors = true;
-
-    # страница авторизации
-    public static $login_page = 'login';
-
-    # экстренно остановить сайт
-    public static $site_stop = false;
+    public static $production = true;
 
     # логирование посещений сайта
-    public static $log_visits = false;
+    public static $log_visits = true;
 
     # логирование ошибок сайта
     public static $log_errors = true;
+
+    # страница авторизации
+    public static $login_page = 'login';
 
     # url для доступа в админку
     public static $admin_partition = 'site_admin/';

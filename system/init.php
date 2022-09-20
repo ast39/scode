@@ -13,9 +13,12 @@ Benchmark::getInstance()->addMark('_work_start_');
 
 # настраиваем сессию
 if (!session_id()) {
+    ini_set('session.save_path', $_SERVER['DOCUMENT_ROOT'] .'/storage/framework/session');
+
     session_set_cookie_params(Settings::$session_set_cookie_params);
     ini_set('session.cookie_lifetime', Settings::$session_set_cookie_params);
     ini_set('session.gc_maxlifetime', Settings::$session_set_cookie_params);
+
     session_start();
 }
 
@@ -40,7 +43,7 @@ if (file_exists(__DIR__ . '/../vendor/illuminate/database/Capsule/Manager.php'))
 }
 
 # настройка показа ошибок
-if (!ERRORS) {
+if (PROD) {
     error_reporting(0);
     ini_set('display_errors', false);
 } else {

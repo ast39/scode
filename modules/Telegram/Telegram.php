@@ -18,6 +18,13 @@ class Telegram {
     protected $bot_id;
 
 
+    public function setBot($bot_id)
+    {
+        $this->bot_id = $bot_id;
+
+        return $this;
+    }
+
     private function send(string $method, array $params)
     {
         $client = new Client();
