@@ -58,16 +58,25 @@ class SC {
     {
         if (Settings::$log_errors === true) {
 
-            $log = json_encode([
-                'type'  => $type,
-                'time'  => date('H:i:s', time()),
-                'ip'    => static::getIp(),
-                'msg'   => $e->getMessage(),
-                'code'  => $e->getCode(),
-                'file'  => $e->getFile(),
-                'line'  => $e->getLine(),
-                'trace' => $e->getTrace(),
-            ]);
+            if (is_object($e)) {
+                $log = json_encode([
+                    'type' => $type,
+                    'time' => date('H:i:s', time()),
+                    'ip' => static::getIp(),
+                    'msg' => $e->getMessage(),
+                    'code' => $e->getCode(),
+                    'file' => $e->getFile(),
+                    'line' => $e->getLine(),
+                    'trace' => $e->getTrace(),
+                ]);
+            } else {
+                $log = json_encode([
+                    'type' => $type,
+                    'time' => date('H:i:s', time()),
+                    'ip' => static::getIp(),
+                    'msg' => $e,
+                ]);
+            }
 
             $file = date('Y-m-d', time());
             if (Storage::disk('logs')->exists($file)) {
