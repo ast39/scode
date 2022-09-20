@@ -24,7 +24,7 @@
                 <li>Добавлен модуль для работы с телеграм ботом <code>modules\telegram</code></li>
                 <li>Изменена работа с логированием системных огибок и визитов</li>
                 <li>Убрана константа <code>ERRORS</code> - теперь добавлена константа <code>PROD</code> отвечающая за продакшн версию проекта</li>
-                <li>Убран параметр <code>Settings::;errors</code> - теперь добавлен парамтер <code>Settings::$production</code> формирующий константу <code>PROD</code></li>
+                <li>Убран параметр <code>Settings::$errors</code> - теперь добавлен парамтер <code>Settings::$production</code> формирующий константу <code>PROD</code></li>
                 <li>Общие правки по движку и улучшение</li>
             </ul>
         </div>
