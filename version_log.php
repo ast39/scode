@@ -28,7 +28,7 @@
                 <li>Общие правки по движку и улучшение</li>
             </ul>
         </div>
-        <div class="card-body">
+        <div class="card-body border-top">
             <h5 class="text-success">SC Версия 3.3.2</h5>
             <ul class="mt-3">
                 <li>Исправлены некоторые ошибки и увеличина стабильность библиотеки <code>helper\DataManager</code></li>
