@@ -22,17 +22,6 @@ class Home extends Controller {
 
     public function index()
     {
-        if (Storage::disk('public')->exists('test')) {
-            Storage::disk('public')->delete('test');
-        }
-
-        Storage::disk('public')->put('test', json_encode(['name' => 'Alex S', 'age'=> 37]));
-        Storage::disk('public')->append('test', json_encode(['name' => 'Alex M', 'age'=> 38]));
-
-        $data = Storage::disk('public')->get('test')->fromJson();
-
-        xmp($data);
-
         $this->loadTemplate('home');
     }
 }
