@@ -9,7 +9,6 @@
 namespace controllers;
 
 use core\Controller;
-use core\SC;
 
 
 class Home extends Controller {
