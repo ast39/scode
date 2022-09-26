@@ -10,8 +10,8 @@ namespace core;
 
 
 use cfg\Settings,
-    helper\Session;
-use modules\storage\Storage;
+    helper\Session,
+    modules\storage\Storage;
 
 class SC {
 
@@ -85,7 +85,7 @@ class SC {
                 Storage::disk('logs')->put($file, $log);
             }
         }
-}
+    }
 
     public static function logVisit()
     {

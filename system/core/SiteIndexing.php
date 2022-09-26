@@ -150,7 +150,7 @@ class SiteIndexing
     private function isIphone()
     {
         return stripos($this->user_agent,"iPhone") !== false
-            || stripos($this->user_agent, "MobileSafari" !== false);
+            || stripos($this->user_agent, "MobileSafari") !== false;
     }
 
     private function isIpad()
