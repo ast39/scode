@@ -6,11 +6,11 @@
  * Time: 13:00
  */
 
-namespace core;
+namespace system\core;
 
 
 use cfg\Settings,
-    helper\Session,
+    system\helper\Session,
     modules\storage\Storage;
 
 class SC {

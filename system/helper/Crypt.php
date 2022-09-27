@@ -6,11 +6,11 @@
  * Time: 16:30
  */
 
-namespace helper;
+namespace system\helper;
 
 
-class Crypt
-{
+class Crypt {
+
     public static function generateKey($long = false)
     {
         $symbols_for_key = [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'];

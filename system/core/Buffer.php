@@ -7,7 +7,7 @@
  */
 
 
-namespace core;
+namespace system\core;
 
 use system\traits\Singleton;
 

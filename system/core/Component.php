@@ -6,11 +6,11 @@
  * Time: 14:01
  */
 
-namespace core;
+namespace system\core;
 
 
-class Component extends Controller
-{
+class Component extends Controller {
+
     public function __construct()
     {
         $this->component = true;

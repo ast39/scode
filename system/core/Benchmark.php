@@ -9,9 +9,9 @@
  * Память в мегабайтах
  */
 
-namespace core;
+namespace system\core;
 
-use helper\DataBuilder;
+use system\helper\DataBuilder;
 
 
 class Benchmark

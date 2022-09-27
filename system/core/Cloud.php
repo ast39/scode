@@ -1,11 +1,9 @@
 <?php
 
 
-namespace core;
+namespace system\core;
 
-use core\Buffer;
-use helper\Session;
-use core\SC;
+use system\helper\Session;
 
 
 class Cloud {

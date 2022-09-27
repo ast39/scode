@@ -6,11 +6,11 @@
  * Time: 18:42
  */
 
-namespace helper;
+namespace system\helper;
 
 
-class RegExp
-{
+class RegExp {
+
     public static function dropImg($string)
     {
         return preg_replace('~<img(.*?)>~is', '', $string);

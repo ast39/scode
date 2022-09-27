@@ -1,6 +1,6 @@
 <?php
 
-namespace helper;
+namespace system\helper;
 
 
 class Censure {

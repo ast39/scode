@@ -6,9 +6,10 @@
  * Time: 15:33
  */
 
+
 namespace controllers;
 
-use core\Controller;
+use system\core\Controller;
 
 
 class Home extends Controller {
@@ -22,6 +23,6 @@ class Home extends Controller {
 
     public function index()
     {
-        $this->loadTemplate('home');
+        $this->loadTemplate();
     }
 }

@@ -4,8 +4,8 @@
 if ( ! defined('VERSION')) exit('Not access');
 
 # используемые библиотеки
-use core\{SC, Route, Benchmark};
-use helper\{Session};
+use system\core\{SC, Route, Benchmark};
+use system\helper\Session;
 use cfg\Settings;
 
 # ставим метку начала работы движка

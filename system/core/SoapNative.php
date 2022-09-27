@@ -6,13 +6,12 @@
  * Time: 14:09
  */
 
-namespace core;
+
+namespace system\core;
 
 
-use \core\Log;
+class SoapNative {
 
-class SoapNative
-{
     protected $service_link;
     
     public function callService($params, $method)

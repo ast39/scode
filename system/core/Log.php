@@ -7,7 +7,7 @@
  */
 
 
-namespace core;
+namespace system\core;
 
 use cfg\Settings;
 use system\traits\Singleton;

@@ -7,7 +7,7 @@
  */
 
 use cfg\Settings,
-    core\SC;
+    system\core\SC;
 
 /*
 +----------------------------------------------------------------------------------------------------
@@ -41,7 +41,7 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
 }
 
 # автолоадэр стартового экрана
-if (file_exists(__DIR__ . '/install.php') && !\core\Route::adminFolder()) {
+if (file_exists(__DIR__ . '/install.php') && !system\core\Route::adminFolder()) {
     require_once __DIR__ . '/install.php';
     die;
 }

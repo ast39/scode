@@ -6,11 +6,11 @@
  * Time: 12:56
  */
 
-namespace helper;
+namespace system\helper;
 
 
-class Session
-{
+class Session {
+
     /**
      * Имя массива пользовательской сессии
      *

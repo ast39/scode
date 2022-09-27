@@ -1,7 +1,7 @@
 <?php
 
 
-namespace core;
+namespace system\core;
 
 
 class RouteRule {

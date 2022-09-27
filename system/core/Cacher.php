@@ -1,7 +1,7 @@
 <?php
 
 
-namespace core;
+namespace system\core;
 
 use cfg\Settings;
 use Symfony\Component\Cache\Adapter\TagAwareAdapter;

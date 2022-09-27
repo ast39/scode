@@ -6,7 +6,7 @@
  * Time: 11:21
  */
 
-namespace helper;
+namespace system\helper;
 
 
 class Validator {

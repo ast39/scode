@@ -1,11 +1,11 @@
 <?php
 
 
-namespace core;
+namespace system\core;
 
 
-class SiteIndexing
-{
+class SiteIndexing {
+
     private $user_agent;
 
     public function __construct()

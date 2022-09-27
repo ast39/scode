@@ -24,11 +24,11 @@
  * CSV::delete('users.csv', 'login', 555);
  */
 
-namespace helper;
+namespace system\helper;
 
 
-class CSV
-{
+class CSV {
+
     /*
      * Public functions ( general methods ) ---------->
      */
@@ -70,8 +70,8 @@ class CSV
         $csv_keys = $csv_values = [];
 
         $i=0;
-        while (($line = fgetcsv($handle, 0, static::$delimiter)) !== FALSE)
-        {
+        while (($line = fgetcsv($handle, 0, static::$delimiter)) !== FALSE) {
+
             $i++;
 
             if ($i == 1) {

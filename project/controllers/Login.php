@@ -6,9 +6,10 @@
  * Time: 15:33
  */
 
+
 namespace controllers;
 
-use core\Controller;
+use system\core\Controller;
 
 
 class Login extends Controller {

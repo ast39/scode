@@ -1,9 +1,9 @@
 <?php
 
 
-namespace core;
+namespace system\core;
 
-use helper\Session;
+use system\helper\Session;
 
 
 class SystemMessage {
@@ -27,7 +27,7 @@ class SystemMessage {
         if ($current_value_msg === null) {
             $current_value[self::getKeyType($type)][$msg_key] = [$message];
         } else {
-            $append == true
+            $append === true
                 ? $current_value[self::getKeyType($type)][$msg_key][] = $message
                 : $current_value[self::getKeyType($type)][$msg_key] = [$message];
         }
@@ -57,7 +57,7 @@ class SystemMessage {
      */
     public static function getAllMsg(int $type = MSG_DEFAULT): array
     {
-        self::checkIsset();
+        static::checkIsset();
 
         return Buffer::getInstance()->system_msg[self::getKeyType($type)] ?? [];
     }

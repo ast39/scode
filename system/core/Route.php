@@ -6,7 +6,7 @@
  */
 
 
-namespace core;
+namespace system\core;
 
 use cfg\Settings;
 

@@ -6,16 +6,15 @@
  * Time: 14:01
  */
 
-namespace core;
+
+namespace system\core;
+
+use cfg\Settings;
+use system\helper\{Session, Crypt, Request};
 
 
-use cfg\Settings,
-    helper\Session;
-use helper\Crypt;
-use helper\Request;
+class Controller {
 
-class Controller
-{
     public $benchmark;
     public $buffer;
     public $log;

@@ -7,9 +7,9 @@
  */
 
 
-namespace core;
+namespace system\core;
 
-use system\traits\SIngletonCollection;
+use system\traits\SingletonCollection;
 
 
 abstract class Lang {

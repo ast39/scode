@@ -3,7 +3,7 @@
 include_once ROOT . 'autoloader.php';
 
 use cfg\Settings,
-    core\Route;
+    system\core\Route;
 
 ?>
 

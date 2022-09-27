@@ -9,7 +9,7 @@
 namespace project\langs\ru;
 
 
-use \core\Lang;
+use system\core\Lang;
 
 class Main extends Lang
 {

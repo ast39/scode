@@ -33,8 +33,9 @@
       "cfg\\": "cfg/",
       "project\\": "project/",
       "admin_panel\\": "admin_panel/",
-      "core\\": "system/core/",
-      "helper\\": "system/helper/",
+      "system\\core\\": "system/core/",
+      "system\\helper\\": "system/helper/",
+      "system\\traits\\": "system/traits/",
       "controllers\\": "project/controllers/",
       "models\\": "project/models/",
       "traits\\": "project/traits/"
