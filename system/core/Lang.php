@@ -6,23 +6,15 @@
  * Time: 18:22
  */
 
+
 namespace core;
 
+use system\traits\SIngletonCollection;
 
-abstract class Lang
-{
-    private static $instances = [];
 
-    private function __construct () {}
+abstract class Lang {
 
-    public static function getInstance()
-    {
-        if (!isset(self::$instances[static::class])) {
-            self::$instances[static::class] = new static();
-        }
-
-        return self::$instances[static::class];
-    }
+    use SingletonCollection;
 
     public function __get($name)
     {

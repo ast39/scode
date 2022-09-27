@@ -5,21 +5,21 @@ namespace system\traits;
 /**
  * Singleton
  */
-trait Singleton
+trait SingletonCollection
 {
     /**
-     * @var
+     * @var array
      */
-    protected static $instance;
+    protected static $instances = [];
 
     /**
      * Get instance
      *
-     * @return Singleton
+     * @return mixed|static
      */
     public static function getInstance()
     {
-        return static::$instance ?? (static::$instance = static::initInstance());
+        return self::$instances[static::class] ?? (self::$instances[static::class] = new static());
     }
 
     /**
@@ -39,7 +39,7 @@ trait Singleton
      */
     public static function resetInstance(): void
     {
-        static::$instance = null;
+        static::$instances[static::class] = null;
     }
 
     /**
