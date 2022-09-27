@@ -9,7 +9,7 @@
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 $configs_db = [
-    'moto' => [
+    'local' => [
         'driver'    => 'mysql',
         'host'      => '128.0.0.1:3306',
         'database'  => 'data',
