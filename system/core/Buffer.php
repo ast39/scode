@@ -6,26 +6,17 @@
  * Time: 17:38
  */
 
+
 namespace core;
+
+use system\traits\Singleton;
 
 
 class Buffer {
 
+    use Singleton;
+
     private $buffer = [];
-    
-    private static $instance = null;
-
-    private function __construct () {}
-
-    public static function getInstance()
-    {
-        if(is_null(self::$instance))
-        {
-            self::$instance = new self();
-        }
-
-        return self::$instance;
-    }
     
     public function __set($name, $value)
     {
@@ -36,6 +27,4 @@ class Buffer {
     {
         return $this->buffer[$name] ?? null;
     }
-
-    protected function __clone() {}
 }
