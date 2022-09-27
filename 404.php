@@ -8,7 +8,7 @@
 
 include_once __DIR__ . DIRECTORY_SEPARATOR . 'autoloader.php';
 use cfg\Settings,
-    core\Route;
+    system\core\Route;
 
 header('Content-type: text/html; charset=utf-8' . Settings::$charset);
 ?>
