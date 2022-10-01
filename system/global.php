@@ -6,6 +6,10 @@
  * Time: 10:23
  */
 
+
+use system\core\SC;
+
+
 function xmp($data)
 {
     echo '<pre>' . print_r($data, true) . '</pre>';
@@ -38,11 +42,10 @@ function requestType()
 
 function isAjax()
 {
-    return isset ($_SERVER['HTTP_X_REQUESTED_WITH'])
-        AND !empty($_SERVER['HTTP_X_REQUESTED_WITH'])
-        AND strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'
-            ? TRUE
-            : FALSE;
+    return
+        isset ($_SERVER['HTTP_X_REQUESTED_WITH'])
+        && !empty($_SERVER['HTTP_X_REQUESTED_WITH'])
+        && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
 }
 
 function objectToArray($data)
@@ -56,4 +59,19 @@ function xmlToArray($xml_string)
     $json  = json_encode($xml);
 
     return json_decode($json,TRUE);
+}
+
+function noController($page_class)
+{
+    if  ($page_class != 'i' && stripos($page_class, 'apple-touch-icon') === false) {
+        SC::logSystemError('Controller not found: ' . $page_class);
+    }
+
+    SC::goTo404();
+}
+
+function noMethod($page_method)
+{
+    SC::logSystemError('Method not found: ' . $page_method);
+    SC::goTo404();
 }

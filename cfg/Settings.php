@@ -9,8 +9,8 @@
 namespace cfg;
 
 
-class Settings extends SystemSettings
-{
+class Settings extends SystemSettings {
+
     # конфиг для Телеграмм бота
     public static $telegram_cfg = [
         'test' => 'test'

@@ -29,6 +29,9 @@ class SystemSettings {
     # вкл / выкл вывод ошибок
     public static $production = true;
 
+    # вкл / выкл дебаг информации
+    public static $debug = true;
+
     # логирование посещений сайта
     public static $log_visits = true;
 

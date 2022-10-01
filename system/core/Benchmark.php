@@ -12,25 +12,14 @@
 namespace system\core;
 
 use system\helper\DataBuilder;
+use system\traits\Singleton;
 
 
-class Benchmark
-{
+class Benchmark {
+
+    use Singleton;
+
     private $marks = [];
-
-    private static $instance = null;
-
-    private function __construct () {}
-
-    public static function getInstance()
-    {
-        if(is_null(self::$instance))
-        {
-            self::$instance = new self();
-        }
-
-        return self::$instance;
-    }
 
     public function addMark($name)
     {
@@ -53,9 +42,10 @@ class Benchmark
         $start_mark = $old_mark = $this->marks['_work_start_']['mark'];
         $this->marks = DataBuilder::instance($this->marks)->orderBy('mark');
 
-        foreach ($this->marks as $name => $markArr)
-        {
+        foreach ($this->marks as $name => $markArr) {
+
             $data[$name] = [
+
                 'mark'       => $markArr['mark'],
                 'load_mark'  => number_format($markArr['mark'] - $old_mark, 4),
                 'load_total' => number_format($markArr['mark'] - $start_mark, 4) ,
@@ -79,6 +69,7 @@ class Benchmark
         }
 
         if (!isset($this->marks[$point2])) {
+
             $this->marks[$point2]['mark']   = microtime(1);
             $this->marks[$point2]['memory'] = self::memoryUse();
         }
