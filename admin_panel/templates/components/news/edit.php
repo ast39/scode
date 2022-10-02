@@ -1,4 +1,4 @@
-<?php use core\SystemMessage; ?>
+<?php use system\core\SystemMessage; ?>
 
 <h4 class="mt-3 pl-3">Редактировать новость</h4>
 <hr />

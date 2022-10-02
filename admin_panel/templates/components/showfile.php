@@ -3,7 +3,7 @@
 
 <div class="row">
     <div class="col-12 mt-3">
-        <img class="img-responsive img-rounded" width="24" src="<?= \core\Route::siteRootForStatic() ?>i/img/system/i_return.png" /> <a href="<?= SITE ?>redactor/back">.. / На уровень выше /</a>
+        <img class="img-responsive img-rounded" width="24" src="<?= \system\core\Route::siteRootForStatic() ?>i/img/system/i_return.png" /> <a href="<?= SITE ?>redactor/back">.. / На уровень выше /</a>
     </div>
     <div class="col-12 mt-3">
         <?php if ($this->buffer->is_image === true): ?>

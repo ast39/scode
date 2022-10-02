@@ -1,6 +1,6 @@
 <?php
-    use helper\Session,
-        core\Route;
+    use system\helper\Session,
+        system\core\Route;
 ?>
 
 <?php if (!in_array(PAGE_METHOD, ['newdir', 'newfile', 'editfile', 'uploadfile', 'showfile'])): ?>
