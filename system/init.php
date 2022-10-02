@@ -29,7 +29,7 @@ Benchmark::getInstance()->addMark('_work_start_');
 +----------------------------------------------------------------------------------------------------
 */
 if (!session_id()) {
-    ini_set('session.save_path', $_SERVER['DOCUMENT_ROOT'] .'/storage/framework/session');
+    ini_set('session.save_path', $_SERVER['DOCUMENT_ROOT'] . '/' . Settings::$site_dir .'storage/framework/session');
 
     session_set_cookie_params(Settings::$session_set_cookie_params);
     ini_set('session.cookie_lifetime', Settings::$session_set_cookie_params);

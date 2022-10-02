@@ -61,11 +61,11 @@
         <li><span class="comment">// Получить информацию из хранилища как масиив</span></li>
         <li><span class="line_code"><span class="class">\modules\Storage</span>::<span class="method">disk</span>(<span class="data">'public'</span>)-><span class="method">get</span>(<span class="data">'test'</span>)-><span class="method">toArray()</span>;</span></li>
         <li></li>
+        <li><span class="comment">// Получить информацию из хранилища как массив объектов</span></li>
+        <li><span class="line_code"><span class="class">Storage</span>::<span class="method">disk</span>(<span class="data">'public'</span>)-><span class="method">get</span>(<span class="data">'test'</span>)-><span class="method">toArrayOfObjects()</span>;</span></li>
+        <li></li>
         <li><span class="comment">// Получить информацию из хранилища как jSon</span></li>
         <li><span class="line_code"><span class="class">\modules\Storage</span>::<span class="method">disk</span>(<span class="data">'public'</span>)-><span class="method">get</span>(<span class="data">'test'</span>)-><span class="method">toJson()</span>;</span></li>
-        <li></li>
-        <li><span class="comment">// Получить информацию как массив из jSon объекта</span></li>
-        <li><span class="line_code"><span class="class">\modules\Storage</span>::<span class="method">disk</span>(<span class="data">'public'</span>)-><span class="method">get</span>(<span class="data">'test'</span>)-><span class="method">fromJson()</span>;</span></li>
         <li></li>
         <li><span class="comment">// Удалить информацию из хранилища</span></li>
         <li><span class="line_code"><span class="class">\modules\Storage</span>::<span class="method">disk</span>(<span class="data">'public'</span>)-><span class="method">delete</span>(<span class="data">'test'</span>);</span></li>

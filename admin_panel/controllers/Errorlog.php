@@ -48,7 +48,7 @@ class Errorlog extends Controller {
         $log = [];
 
         if (Storage::disk('logs')->exists($log_file)) {
-            $log = Storage::disk('logs')->get($log_file)->fromJson();
+            $log = Storage::disk('logs')->get($log_file)->toArray();
         }
 
         return $log;

@@ -56,7 +56,7 @@ class Visitlog extends Controller {
         $log = [];
 
         if (Storage::disk('visits')->exists($log_file)) {
-            $log = Storage::disk('visits')->get($log_file)->fromJson();
+            $log = Storage::disk('visits')->get($log_file)->toArray();
         }
 
         return $log;
