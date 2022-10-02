@@ -25,7 +25,7 @@ class DataType {
      */
     public function toText(): string
     {
-        return implode(',', $this->data);
+        return implode(PHP_EOL, $this->data);
     }
 
     /**
@@ -35,18 +35,34 @@ class DataType {
      */
     public function toArray(): array
     {
-        return $this->data;
+        return array_map(function($e) {
+
+            return
+                isJson($e)
+                    ? json_decode($e, true)
+                    : $e;
+        }, $this->data);
     }
 
     /**
-     * As array from JSON
+     * As array of objects
      *
      * @return array
      */
-    public function fromJson(): array
+    public function toArrayOfObjects(): array
     {
         return array_map(function($e) {
-            return json_decode($e, true);
+
+            $data = isJson($e)
+                ? json_decode($e, true)
+                : $e;
+
+            $class = new \stdClass();
+            foreach ($data as $var => $value) {
+                $class->$var = $value;
+            }
+
+            return $class;
         }, $this->data);
     }
 
@@ -57,6 +73,6 @@ class DataType {
      */
     public function toJson(): string
     {
-        return json_encode($this->toText());
+        return json_encode($this->toArray());
     }
 }

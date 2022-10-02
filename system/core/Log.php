@@ -9,7 +9,7 @@
 
 namespace system\core;
 
-use cfg\Settings;
+use modules\storage\Storage;
 use system\traits\Singleton;
 
 
@@ -38,17 +38,34 @@ class Log {
         return $this->log_buffer[$name] ?? null;
     }
 
-    public function saveLog($name, $file, $clean_file = false)
+    public function saveLog($name, $file, $clean_file = false): void
     {
-        if (isset($this->log_buffer[$name])) {
-            
-            $log_dir = Settings::$log_dir;
-            $way_to_log = str_ireplace(['/', '//', '\\', '\\\\'], DIRECTORY_SEPARATOR, $log_dir . DIRECTORY_SEPARATOR . $file);
-            
-            $clean_file == true
-                ? file_put_contents($way_to_log, $this->log_buffer[$name])
-                : file_put_contents($way_to_log, $this->log_buffer[$name], FILE_APPEND);
+
+        if (($this->log_buffer[$name] ?? null) !== null) {
+
+            if (Storage::disk('public')->exists($name)) {
+
+                if ($clean_file) {
+                    Storage::disk('public')->delete($name);
+                } else {
+                    Storage::disk('public')->append($name, $this->log_buffer[$name]);
+                }
+            }
+
+            Storage::disk('public')->put($name, $this->log_buffer[$name]);
         }
+    }
+
+    public function readLog($name, $json = false):? array
+    {
+        if (Storage::disk('public')->exists($name)) {
+
+            return $json
+                ? Storage::disk('public')->get($name)->fromJson()
+                : Storage::disk('public')->get($name)->toArray();
+        }
+
+        return null;
     }
 
     protected function __clone() {}

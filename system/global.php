@@ -75,3 +75,10 @@ function noMethod($page_method)
     SC::logSystemError('Method not found: ' . $page_method);
     SC::goTo404();
 }
+
+function isJson($string)
+{
+    return is_string($string) &&
+        (is_object(json_decode($string)) ||
+            is_array(json_decode($string)));
+}

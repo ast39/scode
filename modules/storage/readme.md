@@ -17,8 +17,24 @@
     Storage::disk('public')->exists('test')
 ---
 
-##### Get datat from storage
-    $data = Storage::disk('public')->get('test')->toText();
+##### Get data from storage
+    $data = Storage::disk('public')->get('test')
+---
+
+##### Get data from storage as text
+    $data = Storage::disk('public')->get('test')->toText()
+---
+
+##### Get data from storage as array
+    $data = Storage::disk('public')->get('test')->toArray()
+---
+
+##### Get data from storage as array of objects
+    $data = Storage::disk('public')->get('test')->toArrayOfObjects()
+---
+
+##### Get data from storage as Json object
+    $data = Storage::disk('public')->get('test')->toJson()
 ---
 
 ##### Save data into the storage

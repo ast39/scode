@@ -52,7 +52,7 @@ class Disk {
      * @param string $data
      * @return bool
      */
-    public function put(string $file_name, string $data): bool
+    public function put(string $file_name, $data): bool
     {
         $file_name = $this->parseFileName($file_name);
 
@@ -62,7 +62,11 @@ class Disk {
 
         $this->tryCreatePath($file_name);
 
-        file_put_contents($this->getFullPath($file_name), $data);
+        if (is_array($data)) {
+            $data = json_encode($data);
+        }
+
+        file_put_contents($this->getFullPath($file_name), $data . PHP_EOL);
 
         return true;
     }
@@ -74,7 +78,7 @@ class Disk {
      * @param string $data
      * @return bool
      */
-    public function append(string $file_name, string $data): bool
+    public function append(string $file_name, $data): bool
     {
         $file_name = $this->parseFileName($file_name);
 
@@ -82,7 +86,11 @@ class Disk {
             return false;
         }
 
-        file_put_contents($this->getFullPath($file_name), $data, FILE_APPEND);
+        if (is_array($data)) {
+            $data = json_encode($data);
+        }
+
+        file_put_contents($this->getFullPath($file_name), $data . PHP_EOL, FILE_APPEND);
 
         return true;
     }

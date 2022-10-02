@@ -9,7 +9,9 @@
 
 namespace controllers;
 
+use modules\storage\Storage;
 use system\core\Controller;
+use system\core\Log;
 
 
 class Home extends Controller {
