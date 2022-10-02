@@ -50,7 +50,8 @@
     <code>illuminate/database</code> - работа с базами данных<br />
     <code>swiftmailer/swiftmailer</code> - работа с почтой<br />
     <code>symfony/cache</code> - работа с кэшированием<br />
-    <code>guzzlehttp/guzzle</code> - работа с запросами
+    <code>guzzlehttp/guzzle</code> - работа с запросами<br />
+    <code>vlucas/phpdotenv</code> - работа с .env файлами
 </div>
 
 <div class="bg-light p-3 border-top border-bottom text-secondary font-weight-normal">Логирование</div>

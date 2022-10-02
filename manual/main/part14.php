@@ -29,5 +29,13 @@
             <td class="text-left"><code>xmlToArray($xml_string)</code></td>
             <td class="text-left">Конвертация XML в массив</td>
         </tr>
+        <tr>
+            <td class="text-left"><code>noController($page)</code></td>
+            <td class="text-left">Вызвать 404 ошибку - страница не найдна (контроллер)</td>
+        </tr>
+        <tr>
+            <td class="text-left"><code>noMethod($page)</code></td>
+            <td class="text-left">Вызвать 404 ошибку - страница не найдна (метод)</td>
+        </tr>
     </tbody>
 </table>

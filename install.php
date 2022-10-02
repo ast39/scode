@@ -103,15 +103,6 @@ use cfg\Settings,
                             <td class="text-right text-danger">Ни один <code>$_SERVER['REQUEST_URI']</code>, <code>$_SERVER['PHP_SELF']</code>, or <code>$_SERVER['PATH_INFO']</code> не доступен.</td>
                         <?php endif ?>
                     </tr>
-                    <tr>
-                        <td class="text-left">Директория логов</td>
-                        <?php $logDir = '\\' . Settings::$log_dir . '\\' ;?>
-                        <?php if (is_dir(__DIR__ . '/' . str_replace('\\', '/', $logDir))): ?>
-                            <td class="text-right text-success">\<?= Settings::$log_dir ?>\</td>
-                        <?php else: $failed = TRUE ?>
-                            <td class="text-right text-danger">Каталог <code><?= $logDir ?></code> не существует или не доступен для записи.</td>
-                        <?php endif ?>
-                    </tr>
                     </tbody>
                 </table>
 

@@ -26,6 +26,10 @@
         <td class="text-left">Вспомогательные системные библиотеки</td>
     </tr>
     <tr>
+        <td class="text-left"><code>\system\traits</code></td>
+        <td class="text-left">Системные трейты</td>
+    </tr>
+    <tr>
         <td class="text-left"><code>\i\css</code></td>
         <td class="text-left">Каталог стилей</td>
     </tr>
@@ -58,8 +62,16 @@
         <td class="text-left">Каталог с трейтами проекта</td>
     </tr>
     <tr>
+        <td class="text-left"><code>\modules</code></td>
+        <td class="text-left">Подключаемые модули</td>
+    </tr>
+    <tr>
+        <td class="text-left"><code>\storage</code></td>
+        <td class="text-left">Каталог модуля хранилища</td>
+    </tr>
+    <tr>
         <td class="text-left"><code>\tmp</code></td>
-        <td class="text-left">Каталог временных файлов / логов и т.д.</td>
+        <td class="text-left">Каталог временных файлов</td>
     </tr>
     <tr>
         <td class="text-left"><code>\composer.json</code></td>

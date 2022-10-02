@@ -87,9 +87,6 @@ class SystemSettings {
 
     # почта для отправки писем от пользователей сайта.
     public static $public_mail = 'support.sc@gmail.com';
-
-    # папка для логов
-    public static $log_dir = 'tmp\logs';
     
     # время кэширования
     public static $cache_time = 3600;

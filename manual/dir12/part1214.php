@@ -49,6 +49,14 @@
         </li>
         <li></li>
         <li>
+            <span class="comment">// Очистить реестр сообщений</span>
+        </li>
+        <li>
+            <span class="line_code"><span class="class">SystemMessage</span>::<span class="method">clean():
+                <span class="keywords">void</span></span></span>
+        </li>
+        <li></li>
+        <li>
             <span class="comment">// Восстанавливает сообщения, если таковые были в сессии</span>
         </li>
         <li>

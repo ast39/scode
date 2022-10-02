@@ -15,24 +15,36 @@
         <td class="text-left">Если сайт в каталоге</td>
     </tr>
     <tr>
+        <td class="text-left"><code>site_stop</code></td>
+        <td class="text-left">Экстренно остановить (закрыть) сайт</td>
+    </tr>
+    <tr>
         <td class="text-left"><code>multi_lang</code></td>
         <td class="text-left">Опция мультиязычного проекта</td>
     </tr>
     <tr>
-        <td class="text-left"><code>errors</code></td>
-        <td class="text-left">Включить дебаг режим ( вывод ошибок )</td>
+        <td class="text-left"><code>production</code></td>
+        <td class="text-left">Включить для сервера, выключить для разработки</td>
+    </tr>
+    <tr>
+        <td class="text-left"><code>debug</code></td>
+        <td class="text-left">Вывод скорости загрузки движка и использования памяти</td>
+    </tr>
+    <tr>
+        <td class="text-left"><code>log_visits</code></td>
+        <td class="text-left">Включить логирование посещений сайта</td>
+    </tr>
+    <tr>
+        <td class="text-left"><code>log_errors</code></td>
+        <td class="text-left">Включить логирование ошибок сайта</td>
     </tr>
     <tr>
         <td class="text-left"><code>login_page</code></td>
         <td class="text-left">Страница, отвечающая за авторизацию</td>
     </tr>
     <tr>
-        <td class="text-left"><code>site_stop</code></td>
-        <td class="text-left">Экстренно остановить (закрыть) сайт</td>
-    </tr>
-    <tr>
-        <td class="text-left"><code>log_visits</code></td>
-        <td class="text-left">Включить логирование посещений сайта</td>
+        <td class="text-left"><code>admin_partition</code></td>
+        <td class="text-left">URL для доступа к админке</td>
     </tr>
     <tr>
         <td class="text-left"><code>def_lang</code></td>
@@ -53,6 +65,10 @@
     <tr>
         <td class="text-left"><code>session_set_cookie_params</code></td>
         <td class="text-left">Время жизни сессионной куки</td>
+    </tr>
+    <tr>
+        <td class="text-left"><code>max_upload_size</code></td>
+        <td class="text-left">Максимальный размер загружаемых файлов</td>
     </tr>
     <tr>
         <td class="text-left"><code>root_login</code></td>
@@ -93,10 +109,6 @@
     <tr>
         <td class="text-left"><code>public_mail</code></td>
         <td class="text-left">Почта для вывода клиентам сайта</td>
-    </tr>
-    <tr>
-        <td class="text-left"><code>log_dir</code></td>
-        <td class="text-left">Директория для хранения логов</td>
     </tr>
     <tr>
         <td class="text-left"><code>site_langs</code></td>
