@@ -13,11 +13,11 @@ class Disk {
      *
      * @var array
      */
-    protected array $parts = [];
+    protected $parts = [];
 
     public function __construct(string $settings)
     {
-         $this->parts = explode('.', $settings);
+        $this->parts = explode('.', $settings);
     }
 
     /**
@@ -42,7 +42,7 @@ class Disk {
             return false;
         }
 
-        return new DataType(file_get_contents($this->getFullPath($file_name)));
+        return new DataType(file($this->getFullPath($file_name)));
     }
 
     /**
@@ -155,7 +155,7 @@ class Disk {
         $parts    = explode('/', $file_name);
         $tmp_link = self::PROJECT_ROOT . 'storage/'. implode('/', $this->parts);
 
-            foreach ($parts as $k => $part) {
+        foreach ($parts as $k => $part) {
             $tmp_link .= '/' . $part;
 
             if (!file_exists($tmp_link)) {

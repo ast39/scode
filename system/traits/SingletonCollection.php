@@ -3,10 +3,10 @@
 namespace system\traits;
 
 /**
- * Singleton
+ * Singleton Collection
  */
-trait SingletonCollection
-{
+trait SingletonCollection {
+
     /**
      * @var array
      */

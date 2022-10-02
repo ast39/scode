@@ -6,14 +6,15 @@
  * Time: 17:14
  */
 
+
 namespace admin_panel\controllers;
 
+use system\core\Controller,
+    system\helper\Request;
 
-use core\Controller,
-    helper\Request;
 
-class Management extends Controller
-{
+class Management extends Controller {
+
     public function __construct()
     {
         parent::__construct();
@@ -61,6 +62,7 @@ class Management extends Controller
         if (!file_exists(ROOT . 'sitemap.xml')) {
             $this->buffer->bad_log = 'Файл sitemap.xml не создан';
         } else {
+
             $data = file(ROOT . 'sitemap.xml');
             $this->buffer->data = implode('', $data);
         }
@@ -75,8 +77,8 @@ class Management extends Controller
         }
 
         if (Request::issetPost('htaccess')) {
-
             $text = Request::post('htaccess');
+
             if (file_put_contents(ROOT . '.htaccess', ltrim($text))) {
                 $this->buffer->good_log = $this->langLine('manage_scs_1');
             } else {
@@ -125,6 +127,7 @@ class Management extends Controller
 
                 $status = trim(strrchr($line, '='));
                 $this->buffer->site_status = strpos($status, 'false') !== false ? 1 : 0;
+
                 break;
             }
 

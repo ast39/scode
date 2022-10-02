@@ -8,14 +8,9 @@
 
 namespace admin_panel\controllers;
 
-use core\Controller;
-use core\Route;
-use core\SC;
-use core\SystemMessage;
-use helper\Request;
-use helper\Validator;
-use modules\jsonDb\Adapter;
-use modules\jsonDb\Manager;
+use system\core\{Controller, Route, SC, SystemMessage};
+use system\helper\{Request, Validator};
+use modules\jsonDb\{Adapter, Manager};
 
 
 class News extends Controller {

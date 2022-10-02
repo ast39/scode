@@ -6,16 +6,16 @@
  * Time: 13:58
  */
 
+
 namespace admin_panel\controllers;
 
+use system\core\{Controller, SC};
+use cfg\Settings,
+    system\helper\Request;
 
-use core\Controller,
-    core\SC,
-    cfg\Settings,
-    helper\Request;
 
-class Login extends Controller
-{
+class Login extends Controller {
+
     public function __construct()
     {
         parent::__construct();

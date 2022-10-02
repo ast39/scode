@@ -59,22 +59,24 @@ class SC {
         if (Settings::$log_errors === true) {
 
             if (is_object($e)) {
+
                 $log = json_encode([
-                    'type' => $type,
-                    'time' => date('H:i:s', time()),
-                    'ip' => static::getIp(),
-                    'msg' => $e->getMessage(),
-                    'code' => $e->getCode(),
-                    'file' => $e->getFile(),
-                    'line' => $e->getLine(),
+                    'type'  => $type,
+                    'time'  => date('H:i:s', time()),
+                    'ip'    => static::getIp(),
+                    'msg'   => $e->getMessage(),
+                    'code'  => $e->getCode(),
+                    'file'  => $e->getFile(),
+                    'line'  => $e->getLine(),
                     'trace' => $e->getTrace(),
                 ]);
             } else {
+
                 $log = json_encode([
                     'type' => $type,
                     'time' => date('H:i:s', time()),
-                    'ip' => static::getIp(),
-                    'msg' => $e,
+                    'ip'   => static::getIp(),
+                    'msg'  => $e,
                 ]);
             }
 
@@ -92,17 +94,18 @@ class SC {
         if (Settings::$log_visits === true) {
             $indexing = new SiteIndexing();
 
-            $log = 'Time: ' . date('H:i:s', time()) . PHP_EOL
-                . 'Visitor: ' . $indexing->detectGuest() . PHP_EOL
-                . 'Analyzer: ' . $indexing->detectAnalyzer() . PHP_EOL
-                . 'SearchBot: ' . $indexing->detectSearchBot() . PHP_EOL
-                . 'Device: ' . $indexing->detectDevice() . PHP_EOL
-                . 'Browser: ' . $indexing->detectBrowser() . PHP_EOL
-                . 'OS: ' . $indexing->detectOS() . PHP_EOL
-                . 'Ip: ' . static::getIp() . PHP_EOL
-                . 'User: ' . ($_SERVER['HTTP_USER_AGENT'] ?: '-') . PHP_EOL
-                . 'Url: ' . Route::fullUrl()
-                . PHP_EOL . PHP_EOL;
+            $log = json_encode([
+                'time'       => date('H:i:s', time()),
+                'visitor'    => $indexing->detectGuest(),
+                'analyzer'   => $indexing->detectAnalyzer(),
+                'search_bot' => $indexing->detectSearchBot(),
+                'device'     => $indexing->detectDevice(),
+                'browser'    => $indexing->detectBrowser(),
+                'os'         => $indexing->detectOS(),
+                'ip'         => static::getIp(),
+                'user'       => $_SERVER['HTTP_USER_AGENT'] ?: '-',
+                'url'        => Route::fullUrl(),
+            ]);
 
             $file = date('Y-m-d', time());
             if (Storage::disk('visits')->exists($file)) {

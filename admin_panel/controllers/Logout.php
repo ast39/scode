@@ -6,13 +6,14 @@
  * Time: 13:58
  */
 
+
 namespace admin_panel\controllers;
 
+use system\core\Controller;
 
-use core\Controller;
 
-class Logout extends Controller
-{
+class Logout extends Controller {
+
     public function __construct()
     {
         parent::__construct();

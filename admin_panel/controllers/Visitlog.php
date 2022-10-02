@@ -6,14 +6,15 @@
  * Time: 12:40
  */
 
+
 namespace admin_panel\controllers;
 
+use system\core\Controller;
+use modules\storage\Storage;
 
-use core\Controller,
-    core\SC;
 
-class Visitlog extends Controller
-{
+class Visitlog extends Controller {
+
     public function __construct()
     {
         parent::__construct();
@@ -25,9 +26,16 @@ class Visitlog extends Controller
 
     public function index()
     {
-        $files = $logs = [];
+        $files
+            = $logs
+            = [];
+
         for ($i = 0; $i < 7; $i++) {
-            $files[] = SC::separator(ROOT . 'tmp/' . 'visits/' . date('Y-m-d', time() - (3600 * 24 * $i)) . '.sc');
+            $files[] = date('Y-m-d', time() - (3600 * 24 * $i));
+        }
+
+        foreach ($files as $file) {
+            $logs[$file] = $this->getDayLog($file);
         }
 
         foreach ($files as $k) {
@@ -46,25 +54,9 @@ class Visitlog extends Controller
     private function getDayLog($log_file)
     {
         $log = [];
-        if (file_exists($log_file)) {
 
-            $file_data = file($log_file);
-
-            $i = 0;
-            $pre_log = [];
-            foreach ($file_data as $line_num => $line_data) {
-
-                $firstDoublePontPos = strpos($line_data, ':');
-                if ($firstDoublePontPos == false) {
-
-                    $log[$i] = $pre_log;
-                    $pre_log = [];
-                    $i++;
-                    continue;
-                }
-
-                $pre_log[substr($line_data, 0, $firstDoublePontPos)] = trim(substr($line_data, $firstDoublePontPos + 1));
-            }
+        if (Storage::disk('visits')->exists($log_file)) {
+            $log = Storage::disk('visits')->get($log_file)->fromJson();
         }
 
         return $log;

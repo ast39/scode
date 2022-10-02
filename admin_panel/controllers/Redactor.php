@@ -6,15 +6,13 @@
  * Time: 10:20
  */
 
+
 namespace admin_panel\controllers;
 
-use core\Controller,
-    cfg\Settings,
-    core\SC,
-    core\Route,
-    core\Cloud,
-    helper\Session,
-    helper\Request;
+use system\core\{Controller, SC, Route, Cloud};
+use system\helper\{Session, Request};
+use cfg\Settings;
+
 
 class Redactor extends Controller {
 

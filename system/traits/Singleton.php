@@ -5,8 +5,8 @@ namespace system\traits;
 /**
  * Singleton
  */
-trait Singleton
-{
+trait Singleton {
+
     /**
      * @var
      */
@@ -17,7 +17,7 @@ trait Singleton
      *
      * @return Singleton
      */
-    public static function getInstance()
+    public static function getInstance(): self
     {
         return static::$instance ?? (static::$instance = static::initInstance());
     }

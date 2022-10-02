@@ -9,10 +9,10 @@
 namespace admin_panel\controllers;
 
 
-use core\Controller;
+use system\core\Controller;
 
-class Home extends Controller
-{
+class Home extends Controller {
+
     public function __construct()
     {
         parent::__construct();

@@ -9,11 +9,11 @@ class DataType {
     /**
      * Data for convert to target type
      *
-     * @var string
+     * @var array
      */
-    protected string $data;
+    protected $data = [];
 
-    public function __construct(string $data)
+    public function __construct(array $data)
     {
         $this->data = $data;
     }
@@ -25,7 +25,7 @@ class DataType {
      */
     public function toText(): string
     {
-        return $this->data;
+        return implode(',', $this->data);
     }
 
     /**
@@ -35,7 +35,7 @@ class DataType {
      */
     public function toArray(): array
     {
-        return explode(PHP_EOL, $this->data);
+        return $this->data;
     }
 
     /**
@@ -45,7 +45,9 @@ class DataType {
      */
     public function fromJson(): array
     {
-        return json_decode($this->data, true);
+        return array_map(function($e) {
+            return json_decode($e, true);
+        }, $this->data);
     }
 
     /**
@@ -55,6 +57,6 @@ class DataType {
      */
     public function toJson(): string
     {
-        return json_encode(explode(PHP_EOL, $this->data));
+        return json_encode($this->toText());
     }
 }

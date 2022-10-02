@@ -6,18 +6,19 @@
  * Time: 14:36
  */
 
+
 namespace admin_panel\controllers;
 
+use system\core\{Controller, SC};
+use system\helper\Request;
 
-use core\Controller,
-    core\SC,
-    helper\Request;
 
-class Images extends Controller
-{
+class Images extends Controller {
+
     protected $new_name;
     protected $max_size = 1;
     protected $mime_upload = [
+
         'image/jpeg',
         'image/jpg',
         'image/png',
@@ -46,21 +47,21 @@ class Images extends Controller
     {
         $new_file = Request::file('new_file');
         if ($new_file['error'] > 0) {
-
             $this->buffer->bad_log = $this->langLine('images_err_1');
+
             return false;
         }
 
         if ($new_file['size'] > ($this->max_size * 1024 * 1024)) {
-
             $this->buffer->bad_log = $this->langLine('images_err_2') . $this->max_size . ' MB';
+
             return false;
         }
 
         $info = getimagesize($new_file['tmp_name']);
-        if (!in_array($info['mime'], $this->mime_upload))
-        {
+        if (!in_array($info['mime'], $this->mime_upload)) {
             $this->buffer->bad_log = $this->langLine('images_err_3');
+
             return false;
         }
 
@@ -80,10 +81,11 @@ class Images extends Controller
 
             move_uploaded_file($new_file['tmp_name'], $path);
             $this->buffer->good_log = $this->langLine('images_scs') . $this->new_name . '" )';
+
             return true;
         } else {
-
             $this->buffer->bad_log = $this->langLine('images_err_4');
+
             return false;
         }
     }

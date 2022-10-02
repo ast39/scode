@@ -11,7 +11,7 @@
 namespace admin_panel\langs\en;
 
 
-use \core\Lang;
+use system\core\Lang;
 
 
 class Main extends Lang

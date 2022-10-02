@@ -10,7 +10,7 @@
 namespace admin_panel\langs\ru;
 
 
-use \core\Lang;
+use system\core\Lang;
 
 class Main extends Lang
 {

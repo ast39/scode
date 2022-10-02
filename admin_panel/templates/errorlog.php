@@ -63,32 +63,32 @@
 <hr />
 
 <div id="accordion">
-    <?php foreach ($this->buffer->logs as $day => $day_data): ?>
+    <?php foreach ($this->buffer->logs as $k => $v): ?>
         <div class="card mt-3">
-            <div class="card-header" id="heading_<?= $day ?>">
-                <div class="p-0 m-0 bg-light text-secondary border"><button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse_<?= $day ?>" aria-expanded="false" aria-controls="collapseOne"><?= $day ?></button></div>
+            <div class="card-header" id="heading_<?= $k ?>">
+                <div class="p-0 m-0 bg-light text-secondary border"><button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse_<?= $k ?>" aria-expanded="false" aria-controls="collapseOne"><?= $k ?></button></div>
             </div>
-            <div id="collapse_<?= $day ?>" class="collapse" aria-labelledby="heading_<?= $k ?>" data-parent="#accordion">
+            <div id="collapse_<?= $k ?>" class="collapse" aria-labelledby="heading_<?= $k ?>" data-parent="#accordion">
                 <div class="card-body">
-                    <?php if (empty($day_data)): ?>
+                    <?php if (empty($v)): ?>
                         <div class="p-2 bg-secondary text-white text-center rounded"><?= $this->langLine('errorlog_err_1') ?></div>
                     <?php else: ?>
-                        <?php foreach ($day_data as $data): ?>
-                            <div class="code_block m-0 mb-2">
+                        <?php foreach ($v as $row): ?>
+                            <div class="code_block m-0">
                                 <ol>
-                                    <li><span class="keywords">Tipe:</span> <span class="line_code"><?= $data['type'] ?></span></li>
-                                    <li><span class="keywords">Time:</span> <span class="line_code"><?= $data['time'] ?></span></li>
-                                    <li><span class="keywords">IP:</span> <span class="line_code"><?= $data['ip'] ?></span></li>
-                                    <li><span class="keywords">Code:</span> <span class="line_code"><?= $data['code'] ?></span></li>
-                                    <li><span class="keywords">File:</span> <span class="line_code"><?= $data['file'] ?></span></li>
-                                    <li><span class="keywords">Line:</span> <span class="line_code"><?= $data['line'] ?></span></li>
-                                    <?php $i = 1; ?>
-                                    <?php foreach ($data['trace'] as $row_1): ?>
-                                        <li><span class="variable">Trace data <span class="class"><?= $i ?></span></span></li>
-                                        <?php foreach ($row_1 as $key => $value): ?>
-                                            <li class="tab1"><span class="data"><?= $key ?>:</span> <span class="line_code"><?= is_array($value) ? json_encode($value) : $value ?></span></li>
-                                        <?php endforeach; ?>
-                                        <?php $i++; ?>
+                                    <?php foreach ($row as $error_key => $error_value): ?>
+                                        <?php if ($error_key == 'trace'): ?>
+                                            <?php $i = 1; ?>
+                                            <?php foreach ($error_value as $row_1): ?>
+                                                <li><span class="variable">Trace data <span class="class"><?= $i ?></span></span></li>
+                                                <?php foreach ($row_1 as $key => $value): ?>
+                                                    <li class="tab1"><span class="data"><?= $key ?>:</span> <span class="line_code"><?= is_array($value) ? json_encode($value) : $value ?></span></li>
+                                                <?php endforeach; ?>
+                                                <?php $i++; ?>
+                                            <?php endforeach; ?>
+                                        <?php else: ?>
+                                            <li><span class="keywords"><?= $error_key ?>:</span> <span class="line_code"><?= $error_value ?></span></li>
+                                        <?php endif; ?>
                                     <?php endforeach; ?>
                                 </ol>
                             </div>

@@ -8,7 +8,7 @@
 
 namespace admin_panel\controllers;
 
-use core\Controller,
+use system\core\Controller,
     cfg\Settings;
 
 
@@ -26,14 +26,18 @@ class License extends Controller {
 
     public function index()
     {
-        $lic_en = $lic_ru = [];
-        $lic = file(ROOT . 'License.txt');
-        $mark = 'en';
+        $lic_en
+            = $lic_ru
+            = [];
+
+        $lic    = file(ROOT . 'License.txt');
+        $mark   = 'en';
+
         foreach ($lic as $line) {
 
             if (strpos($line, '===RU===') !== false) {
-
                 $mark = 'ru';
+
                 continue;
             }
 
