@@ -56,12 +56,12 @@ class Log {
         }
     }
 
-    public function readLog($name, $json = false):? array
+    public function readLog($name, $json = false)
     {
         if (Storage::disk('public')->exists($name)) {
 
             return $json
-                ? Storage::disk('public')->get($name)->fromJson()
+                ? Storage::disk('public')->get($name)->toJson()
                 : Storage::disk('public')->get($name)->toArray();
         }
 

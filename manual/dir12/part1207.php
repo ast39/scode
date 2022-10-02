@@ -29,10 +29,17 @@
         </li>
         <li></li>
         <li>
-            <span class="comment">// Сохраняем изменения лога</span>
+            <span class="comment">// Сохраняем изменения в лог-файл</span>
         </li>
         <li>
             <span class="line_code"><span class="variable">$this</span>->log->saveLog(<span class="data">'test_log'</span>, <span class="data">'log_file_name.txt'</span>);</span>
+        </li>
+        <li></li>
+        <li>
+            <span class="comment">// Читаем лог-файл</span>
+        </li>
+        <li>
+            <span class="line_code"><span class="variable">$this</span>->log->readLog(<span class="data">'test_log'</span>, <span class="data">true</span>);</span>
         </li>
         <li></li>
         <li>
@@ -62,10 +69,17 @@
         </li>
         <li></li>
         <li>
-            <span class="comment">// Сохраняем изменения лога</span>
+            <span class="comment">// Сохраняем изменения в лог-файл</span>
         </li>
         <li>
             <span class="line_code"><span class="class">\core\Log::</span>::<span class="method">getInstance()</span>->saveLog(<span class="data">'test_log'</span>, <span class="data">'log_file_name.txt'</span>);</span>
+        </li>
+        <li></li>
+        <li>
+            <span class="comment">// Читаем лог-файл</span>
+        </li>
+        <li>
+            <span class="line_code"><span class="class">\core\Log::</span>::<span class="method">getInstance()</span>->readLog(<span class="data">'test_log'</span>, <span class="data">true</span>);</span>
         </li>
         <li></li>
         <li>
